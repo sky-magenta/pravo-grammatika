@@ -26,7 +26,10 @@ SOFTWARE.
 Notes
 -----
 "pravo-grammatika" is an original work: it contains no borrowed code or
-third-party skill layers, and no third-party binary assets (no landing page,
-no embedded fonts). Its conceptual basis (grammar and syntax of Russian, scope
-semantics, deontic logic operators shared with the paired pravo-logika) is in
-the public domain — see THIRD_PARTY_NOTICES.md.
+third-party skill layers. Its conceptual basis (grammar and syntax of Russian,
+scope semantics, deontic logic operators shared with the paired pravo-logika)
+is in the public domain — see THIRD_PARTY_NOTICES.md.
+
+The Jun font embedded in docs/index.html belongs to its author (Vasily
+Shishkin; free for commercial use, embedding permitted) and is NOT covered by
+this MIT license.
