@@ -1,0 +1,24 @@
+{
+  "name": "pravo-grammatika",
+  "description": "Grammar of the legal text on Russian legal practice — the third element of the trivium (grammar · logic · rhetoric). Checks the FORM OF EXPRESSION: whether a clause says unambiguously what was intended or admits more than one reading. Core: syntactic ambiguity and punctuation that cause contract-interpretation disputes — the last-antecedent problem, the scope of and/or, 'including but not limited to', negation and exceptions, deadline boundaries (inclusive or not), anaphora and cross-references, deontic modality (may/shall/must), and typography that changes meaning. Modes: ambiguity, punctuation, norm, rewrite. The key criterion of every finding is HOW the legal result changes, not 'a rule requires a comma'. Never resolves ambiguity silently — shows both readings and leaves the choice to the author (substituting the parties' will is forbidden). Validity is out of scope (flagged to pravo-logika), persuasiveness too (flagged to pravo-ritorika); statutes and case law are flagged for human verification, never asserted from memory. Russian-language references.",
+  "version": "0.1.0",
+  "author": {
+    "name": "Sofya Smirnova",
+    "url": "https://t.me/forgednotwritten"
+  },
+  "homepage": "https://github.com/sky-magenta/pravo-grammatika",
+  "repository": "https://github.com/sky-magenta/pravo-grammatika",
+  "license": "MIT",
+  "keywords": [
+    "legal",
+    "law",
+    "russian-law",
+    "legal-drafting",
+    "contract-interpretation",
+    "ambiguity",
+    "grammar",
+    "punctuation",
+    "critical-thinking"
+  ],
+  "category": "legal"
+}

@@ -1,0 +1,50 @@
+# ── OS / editor cruft ────────────────────────────────────────────────
+.DS_Store
+.AppleDouble
+.LSOverride
+Thumbs.db
+ehthumbs.db
+desktop.ini
+*.swp
+*.swo
+*~
+*.bak
+*.orig
+*.tmp
+
+# ── Editor / IDE ─────────────────────────────────────────────────────
+.vscode/
+.idea/
+*.sublime-project
+*.sublime-workspace
+
+# ── Python ───────────────────────────────────────────────────────────
+__pycache__/
+*.py[cod]
+*.egg-info/
+.pytest_cache/
+.mypy_cache/
+.ruff_cache/
+.venv/
+venv/
+env/
+
+# ── Secrets / local env (never commit) ───────────────────────────────
+.env
+.env.*
+*.pem
+*.key
+
+# ── Eval run artifacts (cases.jsonl is committed; results/temp are not) ─
+/evals/results.json
+/evals/_*.txt
+
+# ── GitHub Pages / site build ────────────────────────────────────────
+/docs/_site/
+/_site/
+.jekyll-cache/
+
+# ── Local scratch ────────────────────────────────────────────────────
+/scratch/
+/tmp/
+*.log
