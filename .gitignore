@@ -35,6 +35,10 @@ env/
 *.pem
 *.key
 
+# ── Developer-local notes (never publish) ────────────────────────────
+*.local.md
+.claude/settings.local.json
+
 # ── Eval run artifacts (cases.jsonl is committed; results/temp are not) ─
 /evals/results.json
 /evals/_*.txt
