@@ -100,14 +100,15 @@ pravo-grammatika/
 
 Проверка — `/plugin`. Плагин подключает и скилл (`SKILL.md` + `references/`), и слэш-команды `/pravo-grammatika:ambiguity`, `/pravo-grammatika:punctuation`, `/pravo-grammatika:norm`, `/pravo-grammatika:rewrite`.
 
-**В Claude Cowork** — скилл загружается ZIP-архивом (нужен включённый code execution; планы Free / Pro / Max / Team / Enterprise):
+**В Claude Cowork (мышкой, без командной строки)** — Cowork — рабочее пространство в приложении Claude (macOS и Windows; нужен платный план: Pro, Max, Team или Enterprise). Скилл ставится как плагин из этого же репозитория:
 
-1. Скачайте репозиторий архивом: на [GitHub](https://github.com/sky-magenta/pravo-grammatika) → кнопка **Code → Download ZIP** (внутри — папка скилла с `SKILL.md` в корне).
-2. В Cowork откройте **Customize → Skills** (панель слева).
-3. Нажмите **«+» → Create skill → Upload a skill** и загрузите ZIP-архив.
-4. Включите скилл тумблером в списке.
+1. Откройте вкладку **Cowork**, затем в левой панели — меню **Customize** («Настроить»).
+2. Перейдите на вкладку **Plugins** → в разделе **Personal plugins** нажмите **«+»** → **Add marketplace**.
+3. Выберите **Add from a repository** и укажите репозиторий `sky-magenta/pravo-grammatika`. Маркетплейс синхронизируется.
+4. Найдите плагин **pravo-grammatika** и нажмите **Install**.
+5. Готово. Наберите **«/»** или нажмите **«+»** в чате Cowork — появятся слэш-команды `/pravo-grammatika:…`; либо просто попросите словами: «проверь формулировку», «где запятая меняет смысл».
 
-Вызов в Cowork: наберите `/` в панели и выберите `pravo-grammatika`, либо просто попросите обычным запросом («проверь формулировку…») — Claude подхватит скилл по описанию.
+Маркетплейс `damascus-ink` общий для семейства: в нём же — `pravo-logika` и `pravo-ritorika`. Если вы уже добавляли маркетплейс ради них, второй раз добавлять не нужно — просто установите `pravo-grammatika` из того же списка. MCP-серверов у плагина нет — только текстовые файлы скилла и команды. Официальная инструкция Anthropic — [«Use plugins in Claude»](https://support.claude.com/en/articles/13837440-use-plugins-in-claude).
 
 ## Вызов
 

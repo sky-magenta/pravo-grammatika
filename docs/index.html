@@ -251,16 +251,15 @@
       <div class="trig">вызов обычным запросом: «проверь формулировку», «где запятая меняет смысл», «сделай однозначным»</div>
     </div>
     <div class="card" style="grid-column:1/-1">
-      <h3>В Claude Cowork <span class="tag">Skills</span></h3>
-      <p>Cowork принимает скилл ZIP-архивом. Нужен включённый code execution; доступно на планах Free / Pro / Max / Team / Enterprise. Пошагово:</p>
+      <h3>В Claude Cowork <span class="tag">плагином</span></h3>
+      <p>Cowork — рабочее пространство внутри приложения Claude (не путать с Claude Code). Скилл ставится плагином из этого репозитория, через меню — команды печатать не нужно. Нужен платный план (Pro / Max / Team / Enterprise): плагины доступны только на них.</p>
       <ol class="steps">
-        <li>Скачайте репозиторий архивом: на <a href="https://github.com/sky-magenta/pravo-grammatika">GitHub</a> нажмите зелёную кнопку <b>Code → Download ZIP</b>. Внутри архива — папка скилла с <code>SKILL.md</code> в корне (это всё, что нужно Cowork).</li>
-        <li>В Cowork откройте <b>Customize → Skills</b> (панель слева).</li>
-        <li>Нажмите <b>«+» → Create skill → Upload a skill</b>.</li>
-        <li>Загрузите скачанный <b>ZIP-архив</b> с папкой скилла.</li>
-        <li>Скилл появится в списке — включите <b>тумблер</b>. Готово.</li>
+        <li>Откройте вкладку <b>Cowork</b>, в левой панели — меню <b>Customize</b>, вкладка <b>Plugins</b>.</li>
+        <li>В разделе <b>Personal plugins</b> нажмите <b>«+» → Add marketplace → Add from a repository</b> и укажите <code>sky-magenta/pravo-grammatika</code>. Маркетплейс синхронизируется.</li>
+        <li>Найдите плагин <b>pravo-grammatika</b> и нажмите <b>Install</b>.</li>
+        <li>Вызов: наберите <b>«/»</b> (или <b>«+»</b>) в чате Cowork — появятся скилл и команды <code>/pravo-grammatika:ambiguity · punctuation · norm · rewrite</code>. Либо попросите словами: «проверь формулировку…».</li>
       </ol>
-      <div class="trig">вызов: наберите «/» в панели и выберите pravo-grammatika, либо просто попросите — «проверь формулировку…»</div>
+      <div class="trig">содержит только скилл и слэш-команды, без MCP-серверов · <a href="https://support.claude.com/en/articles/13837440-use-plugins-in-claude">Use plugins in Claude ↗</a></div>
     </div>
   </div>
 </section>
