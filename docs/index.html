@@ -90,6 +90,9 @@
   .card h3{display:flex;align-items:baseline;gap:10px;flex-wrap:wrap}
   .card .tag{font-family:var(--mono);font-size:11px;color:var(--gold);border:1px solid var(--border);border-radius:8px;padding:2px 7px}
   .card p{margin:0;color:var(--text);font-family:var(--serif);font-size:15px}
+  .card ol.steps{margin:14px 0 0;padding-left:22px;display:flex;flex-direction:column;gap:9px}
+  .card ol.steps li{color:var(--text);font-family:var(--serif);font-size:15px;line-height:1.5;padding-left:4px}
+  .card ol.steps li::marker{color:var(--gold);font-family:var(--mono);font-size:13px}
   .card .trig{margin-top:auto;padding-top:16px;font-size:12.5px;color:var(--muted);font-family:var(--mono)}
 
   .callout{background:var(--s1);border:1px solid var(--border);border-left:3px solid var(--gold);border-radius:14px;padding:20px 22px}
@@ -246,6 +249,18 @@
         <span>OpenAI Codex&nbsp;</span>~/.codex/skills/pravo-grammatika/
       </div>
       <div class="trig">вызов обычным запросом: «проверь формулировку», «где запятая меняет смысл», «сделай однозначным»</div>
+    </div>
+    <div class="card" style="grid-column:1/-1">
+      <h3>В Claude Cowork <span class="tag">Skills</span></h3>
+      <p>Cowork принимает скилл ZIP-архивом. Нужен включённый code execution; доступно на планах Free / Pro / Max / Team / Enterprise. Пошагово:</p>
+      <ol class="steps">
+        <li>Скачайте репозиторий архивом: на <a href="https://github.com/sky-magenta/pravo-grammatika">GitHub</a> нажмите зелёную кнопку <b>Code → Download ZIP</b>. Внутри архива — папка скилла с <code>SKILL.md</code> в корне (это всё, что нужно Cowork).</li>
+        <li>В Cowork откройте <b>Customize → Skills</b> (панель слева).</li>
+        <li>Нажмите <b>«+» → Create skill → Upload a skill</b>.</li>
+        <li>Загрузите скачанный <b>ZIP-архив</b> с папкой скилла.</li>
+        <li>Скилл появится в списке — включите <b>тумблер</b>. Готово.</li>
+      </ol>
+      <div class="trig">вызов: наберите «/» в панели и выберите pravo-grammatika, либо просто попросите — «проверь формулировку…»</div>
     </div>
   </div>
 </section>

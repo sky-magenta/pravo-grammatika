@@ -91,7 +91,7 @@ pravo-grammatika/
 | Cursor        | `~/.cursor/skills/pravo-grammatika/` |
 | OpenAI Codex  | `~/.codex/skills/pravo-grammatika/`  |
 
-**Как плагин (Claude Code)** — репозиторий является маркетплейсом Claude Code (заработает после публикации, см. [«Статус»](#статус)):
+**Как плагин (Claude Code)** — репозиторий является маркетплейсом Claude Code:
 
 ```
 /plugin marketplace add sky-magenta/pravo-grammatika
@@ -99,6 +99,15 @@ pravo-grammatika/
 ```
 
 Проверка — `/plugin`. Плагин подключает и скилл (`SKILL.md` + `references/`), и слэш-команды `/pravo-grammatika:ambiguity`, `/pravo-grammatika:punctuation`, `/pravo-grammatika:norm`, `/pravo-grammatika:rewrite`.
+
+**В Claude Cowork** — скилл загружается ZIP-архивом (нужен включённый code execution; планы Free / Pro / Max / Team / Enterprise):
+
+1. Скачайте репозиторий архивом: на [GitHub](https://github.com/sky-magenta/pravo-grammatika) → кнопка **Code → Download ZIP** (внутри — папка скилла с `SKILL.md` в корне).
+2. В Cowork откройте **Customize → Skills** (панель слева).
+3. Нажмите **«+» → Create skill → Upload a skill** и загрузите ZIP-архив.
+4. Включите скилл тумблером в списке.
+
+Вызов в Cowork: наберите `/` в панели и выберите `pravo-grammatika`, либо просто попросите обычным запросом («проверь формулировку…») — Claude подхватит скилл по описанию.
 
 ## Вызов
 
