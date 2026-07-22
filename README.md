@@ -91,24 +91,24 @@ pravo-grammatika/
 | Cursor        | `~/.cursor/skills/pravo-grammatika/` |
 | OpenAI Codex  | `~/.codex/skills/pravo-grammatika/`  |
 
-**Как плагин (Claude Code)** — репозиторий является маркетплейсом Claude Code:
+**Как плагин (Claude Code)** — через общий маркетплейс семейства. Добавьте его один раз, дальше ставьте нужные скиллы:
 
 ```
-/plugin marketplace add sky-magenta/pravo-grammatika
+/plugin marketplace add sky-magenta/damascus-ink-plugins
 /plugin install pravo-grammatika@damascus-ink
 ```
 
-Проверка — `/plugin`. Плагин подключает и скилл (`SKILL.md` + `references/`), и слэш-команды `/pravo-grammatika:ambiguity`, `/pravo-grammatika:punctuation`, `/pravo-grammatika:norm`, `/pravo-grammatika:rewrite`.
+Проверка — `/plugin`. Плагин подключает и скилл (`SKILL.md` + `references/`), и слэш-команды `/pravo-grammatika:ambiguity`, `/pravo-grammatika:punctuation`, `/pravo-grammatika:norm`, `/pravo-grammatika:rewrite`. Из того же маркетплейса ставятся и соседи — `pravo-logika`, `pravo-ritorika`.
 
-**В Claude Cowork (мышкой, без командной строки)** — Cowork — рабочее пространство в приложении Claude (macOS и Windows; нужен платный план: Pro, Max, Team или Enterprise). Скилл ставится как плагин из этого же репозитория:
+**В Claude Cowork (мышкой, без командной строки)** — Cowork — рабочее пространство в приложении Claude (macOS и Windows; нужен платный план: Pro, Max, Team или Enterprise). Скилл ставится плагином из общего маркетплейса семейства:
 
 1. Откройте вкладку **Cowork**, затем в левой панели — меню **Customize** («Настроить»).
 2. Перейдите на вкладку **Plugins** → в разделе **Personal plugins** нажмите **«+»** → **Add marketplace**.
-3. Выберите **Add from a repository** и укажите репозиторий `sky-magenta/pravo-grammatika`. Маркетплейс синхронизируется.
-4. Найдите плагин **pravo-grammatika** и нажмите **Install**.
+3. Выберите **Add from a repository** и укажите `sky-magenta/damascus-ink-plugins`. Маркетплейс синхронизируется.
+4. Найдите плагин **pravo-grammatika** и нажмите **Install** (рядом в списке — `pravo-logika` и `pravo-ritorika`, если нужны).
 5. Готово. Наберите **«/»** или нажмите **«+»** в чате Cowork — появятся слэш-команды `/pravo-grammatika:…`; либо просто попросите словами: «проверь формулировку», «где запятая меняет смысл».
 
-Маркетплейс `damascus-ink` общий для семейства: в нём же — `pravo-logika` и `pravo-ritorika`. Если вы уже добавляли маркетплейс ради них, второй раз добавлять не нужно — просто установите `pravo-grammatika` из того же списка. MCP-серверов у плагина нет — только текстовые файлы скилла и команды. Официальная инструкция Anthropic — [«Use plugins in Claude»](https://support.claude.com/en/articles/13837440-use-plugins-in-claude).
+Один маркетплейс `damascus-ink-plugins` содержит все три скилла семейства (`pravo-grammatika`, `pravo-logika`, `pravo-ritorika`) — добавляется один раз, второй раз не нужно. MCP-серверов у плагинов нет — только текстовые файлы скиллов и команды. Официальная инструкция Anthropic — [«Use plugins in Claude»](https://support.claude.com/en/articles/13837440-use-plugins-in-claude).
 
 ## Вызов
 
@@ -120,11 +120,11 @@ pravo-grammatika/
 
 ## Статус
 
-Версия 0.1.0. Четыре режима (неоднозначность, пунктуация, нормы, переписывание), у каждого свой формат отчёта в `SKILL.md`. Семь референсов: типология синтаксической неоднозначности, пунктуация, влияющая на смысл, область действия и перечисления, отсылки и анафора, деонтическая модальность, нормы официально-делового стиля, каталог дефектов формы. Мультиинструментные манифесты (`.claude-plugin` / `.codex-plugin` / `.cursor-plugin`) и маркетплейс Claude Code; CI прогоняет проверку манифестов и валидатор набора E2E-тестов на каждый push. Набор E2E-тестов (`evals/`, 79 условных примеров: 58 defect / 21 clean) покрывает все четыре режима и разделы каталога дефектов, включая сделочные / корпоративные сценарии (заверения об обстоятельствах, возмещение имущественных потерь, опционы, условия закрытия) и корректные примеры на отсутствие ложных срабатываний; офлайн-валидатор структуры и покрытия проходит (`pytest evals/validate_cases.py`). Лендинг — [`docs/index.html`](docs/index.html) (в стиле Damascus Ink, самодостаточный, встроенный шрифт Jun), опубликован через GitHub Pages: **[sky-magenta.github.io/pravo-grammatika](https://sky-magenta.github.io/pravo-grammatika/)**. Лицензия — **MIT** (`LICENSE`, © 2026 Sofya Smirnova).
+Версия 0.1.0. Четыре режима (неоднозначность, пунктуация, нормы, переписывание), у каждого свой формат отчёта в `SKILL.md`. Семь референсов: типология синтаксической неоднозначности, пунктуация, влияющая на смысл, область действия и перечисления, отсылки и анафора, деонтическая модальность, нормы официально-делового стиля, каталог дефектов формы. Мультиинструментные манифесты плагина (`.claude-plugin` / `.codex-plugin` / `.cursor-plugin`); ставится из общего маркетплейса семейства [`damascus-ink-plugins`](https://github.com/sky-magenta/damascus-ink-plugins); CI прогоняет проверку манифестов и валидатор набора E2E-тестов на каждый push. Набор E2E-тестов (`evals/`, 79 условных примеров: 58 defect / 21 clean) покрывает все четыре режима и разделы каталога дефектов, включая сделочные / корпоративные сценарии (заверения об обстоятельствах, возмещение имущественных потерь, опционы, условия закрытия) и корректные примеры на отсутствие ложных срабатываний; офлайн-валидатор структуры и покрытия проходит (`pytest evals/validate_cases.py`). Лендинг — [`docs/index.html`](docs/index.html) (в стиле Damascus Ink, самодостаточный, встроенный шрифт Jun), опубликован через GitHub Pages: **[sky-magenta.github.io/pravo-grammatika](https://sky-magenta.github.io/pravo-grammatika/)**. Лицензия — **MIT** (`LICENSE`, © 2026 Sofya Smirnova).
 
 ## Об авторе и проекте
 
-**Автор — [Софья Смирнова](https://damascus-ink.ru)** ([Telegram: «Дамасские чернила | AI и M&A»](https://t.me/forgednotwritten)). Скилл сделан для собственной практики: разбирать форму юридического текста тем же аппаратом, каким лингвистика разбирает синтаксис и семантику, — в паре с логическим `pravo-logika` и риторическим `pravo-ritorika`.
+**Автор — [Софья Смирнова](https://damascus-ink.ru)** ([Telegram: «Дамасские чернила | AI и M&A»](https://t.me/forgednotwritten)), советник корпоративной практики и M&A, руководитель практики AI & Legal Tech в [O2 Consulting](https://o2consult.com); основатель платформы [Moire AI](https://moire-ai.tech). Скилл сделан для собственной практики: разбирать форму юридического текста тем же аппаратом, каким лингвистика разбирает синтаксис и семантику, — в паре с логическим [`pravo-logika`](https://github.com/sky-magenta/pravo-logika) и риторическим [`pravo-ritorika`](https://github.com/sky-magenta/pravo-ritorika).
 
 **[Damascus Ink](https://damascus-ink.ru) («Дамасские чернила»)** — сайт и телеграм-канал об ИИ в юридической практике и M&A: исследования, инструменты, выступления.
 
@@ -132,4 +132,4 @@ pravo-grammatika/
 
 **Единоличный автор — [Софья Смирнова](https://damascus-ink.ru)** ([канал «Дамасские чернила | AI и M&A»](https://t.me/forgednotwritten)). Весь контент репозитория написан ею и является её оригинальной работой; заимствованного кода или чужих скиллов здесь нет. Понятийная основа — общее достояние: грамматика и синтаксис русского языка, семантика области действия (scope), деонтическая логика (аппарат операторов O/P/F, общий с парным `pravo-logika`). Раскладка репозитория следует конвенциям плагинов Claude Code и единообразна с парными `pravo-logika` / `pravo-ritorika`. Полная атрибуция — в [`THIRD_PARTY_NOTICES.md`](THIRD_PARTY_NOTICES.md).
 
-Лицензия — **MIT** (см. [LICENSE](LICENSE)). © 2026 Sofya Smirnova ([t.me/forgednotwritten](https://t.me/forgednotwritten)) — единоличный правообладатель; заимствованного кода или чужих скиллов нет. Единственный сторонний ассет — свободный шрифт Jun на лендинге ([`docs/index.html`](docs/index.html)), который MIT-лицензией проекта не покрывается. Полная атрибуция — в [`THIRD_PARTY_NOTICES.md`](THIRD_PARTY_NOTICES.md).
+Лицензия — **MIT** (см. [LICENSE](LICENSE)). © 2026 Sofya Smirnova ([t.me/forgednotwritten](https://t.me/forgednotwritten)) — единоличный правообладатель. Единственный сторонний ассет — свободный шрифт Jun на лендинге ([`docs/index.html`](docs/index.html)), MIT-лицензией проекта не покрывается.

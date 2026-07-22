@@ -49,8 +49,8 @@
    сферы «M&A», латынь при разборе (ejusdem generis, a fortiori) с русским глоссом, англоязычные
    лингвистические термины с русским объяснением (scope — область действия).
 6. **Лицензия и атрибуция.** Проект под **MIT**, единоличный правообладатель — Sofya Smirnova
-   ([t.me/forgednotwritten](https://t.me/forgednotwritten)); поле `license` в трёх манифестах — `"MIT"`,
-   «MIT» — в описании `marketplace.json`. Не ломать `LICENSE` и `THIRD_PARTY_NOTICES.md`. Рядом с
+   ([t.me/forgednotwritten](https://t.me/forgednotwritten)); поле `license` в трёх манифестах — `"MIT"`.
+   Не ломать `LICENSE` и `THIRD_PARTY_NOTICES.md`. Рядом с
    именем автора везде — ссылка на телеграм-канал. Единственный сторонний ассет — свободный шрифт
    Jun, встроенный base64 в лендинг `docs/index.html` (заголовки, вордмарк); он MIT-лицензией
    проекта не покрывается — оговорка в `THIRD_PARTY_NOTICES.md` §3. При правках лендинга шрифт Jun
@@ -65,9 +65,11 @@
 - **Новый дефект в каталоге** (`references/grammar-errors.md`): по шаблону файла — имя дефекта →
   как выглядит → как меняется правовой результат → как развести; с указанием тематического референса.
 - **Имя и версия.** Имя скилла — `pravo-grammatika` (поле `name` в `SKILL.md`). При содержательных
-  изменениях бампайте `version` синхронно в `SKILL.md`, трёх манифестах (`.claude-plugin`,
-  `.codex-plugin`, `.cursor-plugin`) и `.claude-plugin/marketplace.json`.
-- **Структура плагина.** Внутри `.claude-plugin/` — только `plugin.json` и `marketplace.json`.
+  изменениях бампайте `version` синхронно в `SKILL.md` и трёх манифестах (`.claude-plugin`,
+  `.codex-plugin`, `.cursor-plugin`).
+- **Структура плагина.** Внутри `.claude-plugin/` — только `plugin.json`. Маркетплейс семейства
+  вынесен в отдельный репозиторий [`sky-magenta/damascus-ink-plugins`](https://github.com/sky-magenta/damascus-ink-plugins)
+  (перечисляет все три скилла через github-источники) — здесь `marketplace.json` нет.
   `commands/`, `references/`, `SKILL.md` — в корне репозитория, не внутри `.claude-plugin/`.
 - **Граница с `pravo-logika`.** Если правка размывает границу «синтаксис / понятия» — это ошибка.
   Всё про «следует ли вывод» и «что значит термин по объёму» — чужая юрисдикция, флаг `[→ pravo-logika]`.
@@ -97,6 +99,5 @@
 - Не добавлять реальные дела, клиентов, персональные данные; не использовать англо-американские
   правовые институты как термины (инвариант 5а).
 - Не менять лицензию (MIT) без решения владельца; не ломать `LICENSE` и `THIRD_PARTY_NOTICES.md`;
-  держать `license: "MIT"` синхронно в трёх манифестах и в описании `marketplace.json`; не убирать
-  ссылку на канал рядом с именем автора; не класть `commands/`, `skills/`, `agents/` внутрь
-  `.claude-plugin/`.
+  держать `license: "MIT"` синхронно в трёх манифестах; не убирать ссылку на канал рядом с именем
+  автора; не класть `commands/`, `skills/`, `agents/` внутрь `.claude-plugin/`.
