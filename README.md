@@ -93,7 +93,7 @@ Cowork — рабочее пространство в приложении Claud
 
 1. Откройте вкладку **Cowork**, затем в левой панели — меню **Customize** («Настроить»).
 2. Перейдите на вкладку **Plugins** → в разделе **Personal plugins** нажмите **«+»** → **Add marketplace**.
-3. В открывшемся окне в поле **URL** введите `sky-magenta/damascus-ink-plugins` и нажмите **Sync**. Маркетплейс синхронизируется.
+3. В открывшемся окне в поле **URL** введите `https://github.com/sky-magenta/damascus-ink-plugins` и нажмите **Sync**. Маркетплейс синхронизируется.
 4. Найдите плагин **pravo-grammatika** и нажмите **Install** (рядом в списке — `pravo-logika` и `pravo-ritorika`, если нужны).
 5. Готово. Вызвать: наберите **«/»** или нажмите **«+»** в чате Cowork — появятся слэш-команды `/pravo-grammatika:…`.
 
