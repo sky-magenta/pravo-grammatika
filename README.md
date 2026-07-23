@@ -2,7 +2,9 @@
 
 [![ci](https://github.com/sky-magenta/pravo-grammatika/actions/workflows/ci.yml/badge.svg)](https://github.com/sky-magenta/pravo-grammatika/actions/workflows/ci.yml)
 
-Скилл-агент для проверки **формы выражения** юридического текста на материале практики РФ: говорит ли формулировка однозначно то, что задумано, или допускает больше одного прочтения. Третий и последний элемент тривиума юридического ядра — **грамматика · логика · риторика**, парный к [`pravo-logika`](https://github.com/sky-magenta/pravo-logika) и `pravo-ritorika`. Ключевой критерий каждого замечания — **как меняется правовой результат**, а не «правило требует запятую». Все референсы на русском.
+![Ясность — три скилла для юриста: грамматика, логика, риторика](docs/trivium-banner.png)
+
+Открытый скилл для проверки **формы выражения** юридического текста на материале практики РФ: говорит ли формулировка однозначно то, что задумано, или допускает больше одного прочтения. Третий элемент тривиума **грамматика · логика · риторика** — рядом с [`pravo-logika`](https://github.com/sky-magenta/pravo-logika) и [`pravo-ritorika`](https://github.com/sky-magenta/pravo-ritorika). Ключевой критерий каждого замечания — **как меняется правовой результат**, а не «правило требует запятую». Все референсы на русском.
 
 > Проект [Damascus Ink](https://damascus-ink.ru); автор — основатель платформы [Moire AI](https://moire-ai.tech). Об авторе — в разделе [«Об авторе и проекте»](#об-авторе-и-проекте).
 
@@ -57,7 +59,7 @@ pravo-grammatika/
 │  ├─ reference-anaphora.md     # отсылки, анафора, нумерация, согласованность терминов
 │  ├─ modality-deontic.md       # модальность: вправе/обязан/должен/может/не вправе
 │  ├─ norms-style.md            # нормы официально-делового русского, управление, типографика
-│  └─ grammar-errors.md         # каталог дефектов формы (по образцу rhetoric-errors.md соседа)
+│  └─ grammar-errors.md         # каталог дефектов формы
 ├─ commands/
 │  ├─ ambiguity.md              # /pravo-grammatika:ambiguity — разбор неоднозначности
 │  ├─ punctuation.md            # /pravo-grammatika:punctuation — пунктуация, меняющая смысл
@@ -70,7 +72,7 @@ pravo-grammatika/
 │  └─ example.md                # сквозной разбор условного пункта
 ├─ evals/                       # E2E-тесты: размеченные примеры + прогон через API
 │  ├─ cases.jsonl               # примеры (defect/clean, все 4 режима, каталог дефектов)
-│  ├─ build_cases.py            # генератор cases.jsonl (источник истины)
+│  ├─ build_cases.py            # генератор cases.jsonl
 │  ├─ validate_cases.py         # офлайн-проверка структуры и покрытия (pytest/CI)
 │  └─ run_evals.py              # прогон скилла через Claude API + грейдинг
 ├─ .github/workflows/ci.yml     # CI: манифесты (JSON) + валидатор набора на каждый push
@@ -83,24 +85,11 @@ pravo-grammatika/
 
 ## Установка
 
-**Как папка-скилл** — скопируйте репозиторий в корень скиллов (имя папки должно совпадать с полем `name` в `SKILL.md`):
+Три способа — начните с того, где вы работаете. Программист не нужен ни для одного.
 
-| Инструмент    | Путь                                 |
-| ------------- | ------------------------------------ |
-| Claude Code   | `~/.claude/skills/pravo-grammatika/` |
-| Cursor        | `~/.cursor/skills/pravo-grammatika/` |
-| OpenAI Codex  | `~/.codex/skills/pravo-grammatika/`  |
+### В Claude Cowork (мышкой, без командной строки)
 
-**Как плагин (Claude Code)** — через общий маркетплейс семейства. Добавьте его один раз, дальше ставьте нужные скиллы:
-
-```
-/plugin marketplace add sky-magenta/damascus-ink-plugins
-/plugin install pravo-grammatika@damascus-ink
-```
-
-Проверка — `/plugin`. Плагин подключает и скилл (`SKILL.md` + `references/`), и слэш-команды `/pravo-grammatika:ambiguity`, `/pravo-grammatika:punctuation`, `/pravo-grammatika:norm`, `/pravo-grammatika:rewrite`. Из того же маркетплейса ставятся и соседи — `pravo-logika`, `pravo-ritorika`.
-
-**В Claude Cowork (мышкой, без командной строки)** — Cowork — рабочее пространство в приложении Claude (macOS и Windows; нужен платный план: Pro, Max, Team или Enterprise). Скилл ставится плагином из общего маркетплейса семейства:
+Cowork — рабочее пространство в приложении Claude (macOS и Windows; нужен платный план: Pro, Max, Team или Enterprise). Скилл ставится плагином из общего маркетплейса:
 
 1. Откройте вкладку **Cowork**, затем в левой панели — меню **Customize** («Настроить»).
 2. Перейдите на вкладку **Plugins** → в разделе **Personal plugins** нажмите **«+»** → **Add marketplace**.
@@ -108,7 +97,28 @@ pravo-grammatika/
 4. Найдите плагин **pravo-grammatika** и нажмите **Install** (рядом в списке — `pravo-logika` и `pravo-ritorika`, если нужны).
 5. Готово. Наберите **«/»** или нажмите **«+»** в чате Cowork — появятся слэш-команды `/pravo-grammatika:…`; либо просто попросите словами: «проверь формулировку», «где запятая меняет смысл».
 
-Один маркетплейс `damascus-ink-plugins` содержит все три скилла семейства (`pravo-grammatika`, `pravo-logika`, `pravo-ritorika`) — добавляется один раз, второй раз не нужно. MCP-серверов у плагинов нет — только текстовые файлы скиллов и команды. Официальная инструкция Anthropic — [«Use plugins in Claude»](https://support.claude.com/en/articles/13837440-use-plugins-in-claude).
+Маркетплейс `damascus-ink-plugins` содержит все три скилла тривиума — добавляется один раз, второй раз не нужно. MCP-серверов у плагинов нет — только текстовые файлы скиллов и команды. Официальная инструкция Anthropic — [«Use plugins in Claude»](https://support.claude.com/en/articles/13837440-use-plugins-in-claude).
+
+### В Claude Code (две команды)
+
+Добавьте маркетплейс один раз, затем поставьте скилл:
+
+```
+/plugin marketplace add sky-magenta/damascus-ink-plugins
+/plugin install pravo-grammatika@damascus-ink
+```
+
+Проверка — `/plugin`. Плагин подключает и скилл (`SKILL.md` + `references/`), и слэш-команды `/pravo-grammatika:ambiguity`, `/pravo-grammatika:punctuation`, `/pravo-grammatika:norm`, `/pravo-grammatika:rewrite`. Из того же маркетплейса ставятся и остальные скиллы тривиума — `pravo-logika`, `pravo-ritorika`.
+
+### Как папка-скилл (Claude Code · Cursor · Codex)
+
+Если плагины недоступны — скопируйте репозиторий в корень скиллов (имя папки должно совпадать с полем `name` в `SKILL.md`):
+
+| Инструмент    | Путь                                 |
+| ------------- | ------------------------------------ |
+| Claude Code   | `~/.claude/skills/pravo-grammatika/` |
+| Cursor        | `~/.cursor/skills/pravo-grammatika/` |
+| OpenAI Codex  | `~/.codex/skills/pravo-grammatika/`  |
 
 ## Вызов
 
@@ -116,11 +126,11 @@ pravo-grammatika/
 - Обычный запрос: «проверь формулировку», «сколько прочтений допускает пункт», «где запятая меняет смысл», «вправе или обязан», «сделай формулировку однозначной».
 - Автоматически — агент подгружает скилл, если запрос совпадает с `description` в `SKILL.md`.
 
-Связка с соседями: сначала форма, потом валидность, потом убедительность. Рабочий цикл над пунктом — `/pravo-grammatika:ambiguity` → правка → `/pravo-logika:clause-check` → `/pravo-ritorika:stress-test`.
+Связка внутри тривиума: сначала форма, потом валидность, потом убедительность. Рабочий цикл над пунктом — `/pravo-grammatika:ambiguity` → правка → `/pravo-logika:clause-check` → `/pravo-ritorika:stress-test`.
 
 ## Статус
 
-Версия 0.1.0. Четыре режима (неоднозначность, пунктуация, нормы, переписывание), у каждого свой формат отчёта в `SKILL.md`. Семь референсов: типология синтаксической неоднозначности, пунктуация, влияющая на смысл, область действия и перечисления, отсылки и анафора, деонтическая модальность, нормы официально-делового стиля, каталог дефектов формы. Мультиинструментные манифесты плагина (`.claude-plugin` / `.codex-plugin` / `.cursor-plugin`); ставится из общего маркетплейса семейства [`damascus-ink-plugins`](https://github.com/sky-magenta/damascus-ink-plugins); CI прогоняет проверку манифестов и валидатор набора E2E-тестов на каждый push. Набор E2E-тестов (`evals/`, 79 условных примеров: 58 defect / 21 clean) покрывает все четыре режима и разделы каталога дефектов, включая сделочные / корпоративные сценарии (заверения об обстоятельствах, возмещение имущественных потерь, опционы, условия закрытия) и корректные примеры на отсутствие ложных срабатываний; офлайн-валидатор структуры и покрытия проходит (`pytest evals/validate_cases.py`). Лендинг — [`docs/index.html`](docs/index.html) (в стиле Damascus Ink, самодостаточный, встроенный шрифт Jun), опубликован через GitHub Pages: **[sky-magenta.github.io/pravo-grammatika](https://sky-magenta.github.io/pravo-grammatika/)**. Лицензия — **MIT** (`LICENSE`, © 2026 Sofya Smirnova).
+Версия 0.1.0. Четыре режима — неоднозначность, пунктуация, нормы, переписывание — у каждого свой формат отчёта. Семь референсов на русском: от типологии синтаксической неоднозначности до деонтической модальности и каталога дефектов формы. Скилл проверен на наборе из 79 размеченных примеров (`evals/`), включая сделочные и корпоративные сценарии — заверения об обстоятельствах, возмещение потерь, опционы, условия закрытия; корректные примеры подтверждают отсутствие ложных срабатываний. Страница проекта — **[sky-magenta.github.io/pravo-grammatika](https://sky-magenta.github.io/pravo-grammatika/)**. Лицензия — **MIT**.
 
 ## Об авторе и проекте
 
@@ -130,6 +140,6 @@ pravo-grammatika/
 
 ## Атрибуция и лицензия
 
-**Единоличный автор — [Софья Смирнова](https://damascus-ink.ru)** ([канал «Дамасские чернила | AI и M&A»](https://t.me/forgednotwritten)). Весь контент репозитория написан ею и является её оригинальной работой; заимствованного кода или чужих скиллов здесь нет. Понятийная основа — общее достояние: грамматика и синтаксис русского языка, семантика области действия (scope), деонтическая логика (аппарат операторов O/P/F, общий с парным `pravo-logika`). Раскладка репозитория следует конвенциям плагинов Claude Code и единообразна с парными `pravo-logika` / `pravo-ritorika`. Полная атрибуция — в [`THIRD_PARTY_NOTICES.md`](THIRD_PARTY_NOTICES.md).
+**Автор и правообладатель — [Софья Смирнова](https://damascus-ink.ru)** ([канал «Дамасские чернила | AI и M&A»](https://t.me/forgednotwritten)). Весь контент репозитория написан ею и является её оригинальной работой; заимствованного кода или чужих скиллов здесь нет. Понятийная основа — общее достояние: грамматика и синтаксис русского языка, семантика области действия (scope), деонтическая логика (аппарат операторов O/P/F, общий с парным `pravo-logika`). Раскладка репозитория следует конвенциям плагинов Claude Code и единообразна с парными `pravo-logika` / `pravo-ritorika`. Полная атрибуция — в [`THIRD_PARTY_NOTICES.md`](THIRD_PARTY_NOTICES.md).
 
 Лицензия — **MIT** (см. [LICENSE](LICENSE)). © 2026 Sofya Smirnova ([t.me/forgednotwritten](https://t.me/forgednotwritten)) — автор и правообладатель. Единственный сторонний ассет — свободный шрифт Jun на лендинге ([`docs/index.html`](docs/index.html)), MIT-лицензией проекта не покрывается.
