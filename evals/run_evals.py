@@ -182,6 +182,12 @@ def grade_alias(case, output):
         needles.append(case["defect_lat"])
     if case.get("defect_ru"):
         needles.append(case["defect_ru"])
+    # Эхо-подавление (как в pravo-logika): алиас, дословно присутствующий во входе кейса,
+    # не доказывает, что дефект назван, — формат отчёта цитирует вход.
+    inp = _norm(case.get("input", ""))
+    informative = [n for n in needles if not _hit(n, inp)]
+    if informative:
+        needles = informative
     matched = [n for n in needles if _hit(n, norm)]
     return (len(matched) > 0), ("совпало: " + ", ".join(matched[:3]) if matched else "ожидаемый дефект не назван")
 
