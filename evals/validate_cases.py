@@ -21,7 +21,7 @@ REQUIRED = {"id", "mode", "category", "difficulty", "input", "expect"}
 # Разделы каталога дефектов формы, которые набор обязан покрывать.
 #   A — синтаксис, P — пунктуация, S — область действия, R — отсылки/анафора,
 #   M — модальность, O — нормы языка, W — переписывание, K — M&A/корпоративные, N — clean.
-REQUIRED_SECTIONS = {"A", "P", "S", "R", "M", "O", "W", "K", "N"}
+REQUIRED_SECTIONS = {"A", "P", "S", "R", "M", "O", "W", "K", "N", "Y"}
 
 
 def load_cases(path=CASES_PATH):
