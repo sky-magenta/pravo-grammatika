@@ -2,7 +2,7 @@
 description: Разбор синтаксической неоднозначности — сколько прочтений допускает формулировка и как расходится правовой результат
 ---
 
-Прочитай `SKILL.md` скилла `pravo-grammatika` и референсы `references/syntax-ambiguity.md`, `references/scope-and-lists.md`, `references/reference-anaphora.md`.
+Прочитай `SKILL.md` скилла `pravo-grammatika` и референсы `references/syntax-ambiguity.md`, `references/scope-and-lists.md`; если в тексте есть отсылки или анафора — также `references/reference-anaphora.md`.
 
 Отработай запрос пользователя в режиме «Неоднозначность»:
 
