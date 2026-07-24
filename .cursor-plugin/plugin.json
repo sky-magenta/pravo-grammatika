@@ -1,7 +1,7 @@
 {
   "name": "pravo-grammatika",
   "displayName": "Скилл грамматики для юриста (pravo-grammatika)",
-  "version": "0.1.0",
+  "version": "0.2.0",
   "description": "Grammar of the legal text on Russian legal practice — the third skill of the trivium (grammar · logic · rhetoric). Checks the FORM OF EXPRESSION: whether a clause says unambiguously what was intended or admits more than one reading. Core: syntactic ambiguity and punctuation that cause contract-interpretation disputes — the last-antecedent problem, the scope of and/or, 'including but not limited to', negation and exceptions, deadline boundaries, anaphora and cross-references, deontic modality (may/shall/must), and typography that changes meaning. Modes: ambiguity, punctuation, norm, rewrite. The key criterion of every finding is HOW the legal result changes. Never resolves ambiguity silently — shows both readings, leaves the choice to the author. Validity is out of scope (flagged to pravo-logika), persuasiveness too (flagged to pravo-ritorika); statutes and case law are flagged for human verification.",
   "author": {
     "name": "Sofya Smirnova",
